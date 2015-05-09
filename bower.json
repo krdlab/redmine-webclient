@@ -1,0 +1,25 @@
+{
+  "name": "redmine-webclient",
+  "version": "0.0.0",
+  "private": true,
+  "authors": [
+    "krdlab <krdlab@gmail.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/krdlab/redmine-webclient",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "vue": "~0.11.8",
+    "director": "~1.2.8",
+    "bootstrap": "~3.3.4"
+  }
+}
