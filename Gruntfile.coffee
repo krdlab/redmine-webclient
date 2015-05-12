@@ -9,9 +9,9 @@ module.exports = (grunt) ->
     browserify:
       dist:
         files:
-          'dist/app/js/<%= appconf.name %>.js': ['app/js/{,*/}*.js']
+          'dist/app/js/<%= appconf.name %>.js': ['app/js/{,*/}*.js', 'app/{,*/}*.vue']
         options:
-          transform: ['partialify', 'debowerify']
+          transform: ['partialify', 'debowerify', 'vueify']
     uglify:
       build:
         src:  'dist/app/js/<%= appconf.name %>.js'
@@ -41,6 +41,7 @@ module.exports = (grunt) ->
       scripts:
         files: [
             'app/{,*/}*.html'
+          , 'app/{,*/}*.vue'
           , 'app/css/{,*/}*.css'
           , 'app/js/{,*/}*.js'
         ]

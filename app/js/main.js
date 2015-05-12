@@ -15,7 +15,13 @@ var director = require('director');
             error_message: null,
             currentView: 'projects',
             projects: [],
-            project_id: ''
+            project_id: '',
+            issues: []
+        },
+        components: {
+            'top-navbar':   require('../components/navbar.vue'),
+            projects:       require('../components/projects.vue'),
+            issues:         require('../components/issues.vue')
         },
         computed: {
             is_valid: function() {
@@ -27,18 +33,7 @@ var director = require('director');
             if (!this.is_valid) {
                 this.error_message = 'base url and API key are required';
             } else {
-                req
-                    .get(this.base_url + '/projects.json')
-                    .set('Accept', 'application/json')
-                    .end(function(err, res) {
-                        if (err) {
-                            console.log(err);
-                        } else {
-                            res.body.projects.forEach(function(p) {
-                                app.projects.push(p);
-                            });
-                        }
-                    });
+                window.location = '#/projects';
             }
         },
         methods: {
@@ -49,7 +44,7 @@ var director = require('director');
             save_settings: function() {
                 storage.setItem(storage_key('base_url'), this.base_url);
                 storage.setItem(storage_key('api_key'), this.api_key);
-            }
+            },
         }
     });
 
