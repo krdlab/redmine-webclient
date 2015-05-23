@@ -15,7 +15,7 @@ var director = require('director');
             error_message: null,
             currentView: 'projects',
             projects: [],
-            project_id: '',
+            selected_project: null,
             issues: []
         },
         components: {
@@ -50,7 +50,7 @@ var director = require('director');
 
     var projects = function() { app.currentView = 'projects'; };
     var issues = function(pid) {
-        app.project_id = pid;
+        app.selected_project = $.grep(app.projects, function(p) { return (''+p['id']) === pid; })[0]; // XXX
         app.currentView = 'issues';
     };
 
