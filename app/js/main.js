@@ -1,12 +1,18 @@
 var Vue = require('vue');
 var req = require('superagent');
 var director = require('director');
+var moment = require('moment');
+require('moment/locale/ja');
+moment.locale('ja');
 
 (function() {
     var storage = window.localStorage;
     var storage_key = function(k) { return 'redmine-webclient.' + k; };
     var is_empty = function(s) { return s == null || s == ''; };
 
+    Vue.filter('datetime-format', function(value, format) {
+        return moment(value).format(format);
+    });
     var app = new Vue({
         el: '#app',
         data: {

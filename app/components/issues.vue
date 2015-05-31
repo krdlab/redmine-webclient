@@ -83,11 +83,11 @@
                                     </tr>
                                     <tr>
                                         <td>作成日時</td>
-                                        <td>{{created_on}}</td>
+                                        <td>{{created_on | datetime-format LLL}}</td>
                                     </tr>
                                     <tr>
                                         <td>更新日時</td>
-                                        <td>{{updated_on}}</td>
+                                        <td>{{updated_on | datetime-format LLL}}</td>
                                     </tr>
                                 </tbody>
                             </table>
